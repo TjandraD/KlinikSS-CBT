@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/bggradient"
     tools:context=".SignUp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/prsnName" />
+
+    <EditText
+        android:id="@+id/inputName"
+        style="@style/InputText.Name"/>
+
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/gender" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radio_male"
+            style="@style/BasicRadioBtn"
+            android:layout_marginEnd="20dp"
+            android:text="@string/male"/>
+        <RadioButton
+            android:id="@+id/radio_female"
+            style="@style/BasicRadioBtn"
+            android:text="@string/female"/>
+    </RadioGroup>
+
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/address" />
+
+    <EditText
+        android:id="@+id/inputAddress"
+        style="@style/InputText.Address"/>
+
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/phone_no" />
+
+    <EditText
+        android:id="@+id/inputPhoneNo"
+        style="@style/InputText.PhoneNo"/>
+
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/inputEmail"
+        style="@style/InputText.Email"/>
+
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        style="@style/InputText.Password"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/BtnGeneral"
+        android:text="@string/signUp"
+        android:background="@android:color/holo_blue_dark"/>
+</LinearLayout>

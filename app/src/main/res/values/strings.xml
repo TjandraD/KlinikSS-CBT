@@ -6,4 +6,10 @@
     <string name="kss">Klinik Sehat Sejahtera</string>
     <string name="signUpText">Belum punya akun?</string>
     <string name="signUp">Daftar</string>
+    <string name="prsnName">Nama</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="male">Laki-laki</string>
+    <string name="female">Perempuan</string>
+    <string name="address">Alamat</string>
+    <string name="phone_no">No. Handphone</string>
 </resources>

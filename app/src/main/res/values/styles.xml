@@ -11,6 +11,7 @@
     <style name="BtnGeneral" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="InputText" parent="@style/TextAppearance.AppCompat">
         <item name="android:layout_width">match_parent</item>
@@ -25,5 +26,27 @@
     <style name="InputText.Password">
         <item name="android:inputType">textWebPassword</item>
         <item name="android:hint">@string/password</item>
+    </style>
+    <style name="InputText.Name">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:hint">@string/prsnName</item>
+    </style>
+    <style name="InputText.Address">
+        <item name="android:inputType">textLongMessage</item>
+        <item name="android:hint">@string/address</item>
+    </style>
+    <style name="InputText.PhoneNo">
+        <item name="android:inputType">phone</item>
+        <item name="android:hint">@string/phone_no</item>
+    </style>
+    <style name="BasicTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="BasicRadioBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">onRadioButtonClicked</item>
     </style>
 </resources>

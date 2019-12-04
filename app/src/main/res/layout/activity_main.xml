@@ -15,18 +15,11 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         android:contentDescription="@string/kss"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
+        style="@style/BasicTextView"
         android:text="@string/email" />
 
     <EditText
@@ -34,9 +27,7 @@
         style="@style/InputText.Email"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
+        style="@style/BasicTextView"
         android:text="@string/password" />
 
     <EditText
@@ -48,8 +39,7 @@
         android:id="@+id/btnLogin"
         style="@style/BtnGeneral"
         android:text="@string/login"
-        android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:background="@android:color/holo_blue_dark"/>
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -60,15 +50,12 @@
         <TableRow>
             <TextView
                 android:id="@+id/signUpText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
+                style="@style/BasicTextView"
                 android:text="@string/signUpText"
                 android:layout_marginEnd="5dp"/>
             <TextView
                 android:id="@+id/signUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/BasicTextView"
                 android:textColor="@android:color/holo_blue_light"
                 android:text="@string/signUp" />
         </TableRow>
