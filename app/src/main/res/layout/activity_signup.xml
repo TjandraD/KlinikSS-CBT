@@ -17,24 +17,25 @@
         android:id="@+id/inputName"
         style="@style/InputText.Name"/>
 
-    <TextView
-        style="@style/BasicTextView"
-        android:text="@string/gender" />
+<!--    <TextView-->
+<!--        style="@style/BasicTextView"-->
+<!--        android:text="@string/gender" />-->
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/radio_male"
-            style="@style/BasicRadioBtn"
-            android:layout_marginEnd="20dp"
-            android:text="@string/male"/>
-        <RadioButton
-            android:id="@+id/radio_female"
-            style="@style/BasicRadioBtn"
-            android:text="@string/female"/>
-    </RadioGroup>
+<!--    <RadioGroup-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:id="@+id/radioGroup">-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/radio_male"-->
+<!--            style="@style/BasicRadioBtn"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:text="@string/male"/>-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/radio_female"-->
+<!--            style="@style/BasicRadioBtn"-->
+<!--            android:text="@string/female"/>-->
+<!--    </RadioGroup>-->
 
     <TextView
         style="@style/BasicTextView"
@@ -70,7 +71,7 @@
         android:layout_marginBottom="15dp"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSignUp"
         style="@style/BtnGeneral"
         android:text="@string/signUp"
         android:background="@android:color/holo_blue_dark"/>
