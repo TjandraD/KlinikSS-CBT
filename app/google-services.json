@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "513320676949",
+    "firebase_url": "https://klinik-ss.firebaseio.com",
+    "project_id": "klinik-ss",
+    "storage_bucket": "klinik-ss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513320676949:android:d47353494eb35ca8aaeedc",
+        "android_client_info": {
+          "package_name": "com.tdarmo.klinikss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513320676949-vl6i5q2qkg3aet4avmm8hc4q92j55jja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tdarmo.klinikss",
+            "certificate_hash": "71d01603a64c0c9bdc9a92924b1fb87c0a149cba"
+          }
+        },
+        {
+          "client_id": "513320676949-477unirqoivh53suo4pj0d3i90e0m2qm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6iS008Kj0sHBqFC98nkc6bGy3LpoXo5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513320676949-477unirqoivh53suo4pj0d3i90e0m2qm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

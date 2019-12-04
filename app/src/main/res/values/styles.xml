@@ -12,4 +12,18 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="InputText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:lines">1</item>
+    </style>
+    <style name="InputText.Email">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">@string/email</item>
+    </style>
+    <style name="InputText.Password">
+        <item name="android:inputType">textWebPassword</item>
+        <item name="android:hint">@string/password</item>
+    </style>
 </resources>

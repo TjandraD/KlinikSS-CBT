@@ -2,6 +2,8 @@
     <string name="app_name">Klinik SS</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="login">Masuk</string>
     <string name="kss">Klinik Sehat Sejahtera</string>
+    <string name="signUpText">Belum punya akun?</string>
+    <string name="signUp">Daftar</string>
 </resources>
