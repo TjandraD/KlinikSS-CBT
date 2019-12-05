@@ -29,10 +29,16 @@ class MainActivity : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     }
-                    else
+                    else {
                         Toast.makeText(this, "Selamat datang", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, Dashboard::class.java)
-                    startActivity(intent)
+                        if(email == "admin@example.com" && password == "admin123"){
+                            val intent = Intent(this, AdminDashboard::class.java)
+                            startActivity(intent)
+                        }else{
+                            val intent = Intent(this, Dashboard::class.java)
+                            startActivity(intent)
+                        }
+                    }
                 }
                 .addOnFailureListener{
                     Log.d("Main", "Gagal masuk: ${it.message}")

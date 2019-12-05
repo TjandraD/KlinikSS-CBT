@@ -5,17 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     android:background="@drawable/bggradient"
     tools:context=".SignUp">
 
     <TextView
         style="@style/BasicTextView"
-        android:text="@string/prsnName" />
+        android:text="@string/daftar"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="15dp"/>
 
-    <EditText
-        android:id="@+id/inputName"
-        style="@style/InputText.Name"/>
+<!--    <TextView-->
+<!--        style="@style/BasicTextView"-->
+<!--        android:text="@string/prsnName" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/inputName"-->
+<!--        style="@style/InputText.Name"/>-->
 
 <!--    <TextView-->
 <!--        style="@style/BasicTextView"-->
@@ -37,21 +46,21 @@
 <!--            android:text="@string/female"/>-->
 <!--    </RadioGroup>-->
 
-    <TextView
-        style="@style/BasicTextView"
-        android:text="@string/address" />
+<!--    <TextView-->
+<!--        style="@style/BasicTextView"-->
+<!--        android:text="@string/address" />-->
 
-    <EditText
-        android:id="@+id/inputAddress"
-        style="@style/InputText.Address"/>
+<!--    <EditText-->
+<!--        android:id="@+id/inputAddress"-->
+<!--        style="@style/InputText.Address"/>-->
 
-    <TextView
-        style="@style/BasicTextView"
-        android:text="@string/phone_no" />
+<!--    <TextView-->
+<!--        style="@style/BasicTextView"-->
+<!--        android:text="@string/phone_no" />-->
 
-    <EditText
-        android:id="@+id/inputPhoneNo"
-        style="@style/InputText.PhoneNo"/>
+<!--    <EditText-->
+<!--        android:id="@+id/inputPhoneNo"-->
+<!--        style="@style/InputText.PhoneNo"/>-->
 
     <TextView
         style="@style/BasicTextView"
