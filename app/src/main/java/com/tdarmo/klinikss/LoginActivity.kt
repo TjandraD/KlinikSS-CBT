@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         getSupportActionBar()?.hide()
 
         btnLogin.setOnClickListener {
@@ -26,16 +26,14 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener{
                     if(!it.isSuccessful) {
                         return@addOnCompleteListener
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
                     }
                     else {
                         Toast.makeText(this, "Selamat datang", Toast.LENGTH_SHORT).show()
                         if(email == "admin@example.com" && password == "admin123"){
-                            val intent = Intent(this, AdminDashboard::class.java)
+                            val intent = Intent(this, AdminDashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
                             startActivity(intent)
                         }else{
-                            val intent = Intent(this, Dashboard::class.java)
+                            val intent = Intent(this, Dashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
                             startActivity(intent)
                         }
                     }

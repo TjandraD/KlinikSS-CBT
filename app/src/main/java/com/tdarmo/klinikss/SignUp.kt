@@ -4,10 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignUp : AppCompatActivity() {
@@ -18,14 +17,32 @@ class SignUp : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         btnSignUp.setOnClickListener{
-            val email: String = inputEmail.text.toString()
-            val password: String = inputPassword.text.toString()
+            val email: String = inputEmail.text.toString().trim()
+            val password: String = inputPassword.text.toString().trim()
+
+            if (email.isEmpty()){
+                inputEmail.error = "E-mail harus diisi"
+                inputEmail.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                inputEmail.error = "Format e-mail salah"
+                inputEmail.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (password.isEmpty() || password.length < 6){
+                inputPassword.error = "Password minimal terdiri atas 6 karakter"
+                inputPassword.requestFocus()
+                return@setOnClickListener
+            }
 
             mDatabase.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {task->
                     if(task.isSuccessful){
                         Log.d("SignUp", "createUserWithEmail:success")
                         Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this@SignUp, Dashboard::class.java).apply{Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK}
                         startActivity(intent)
                     }else{
                         Log.w("SignUp", "createUserWithEmail:failure", task.exception)

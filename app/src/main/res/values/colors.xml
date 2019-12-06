@@ -3,4 +3,5 @@
     <color name="colorPrimary">#2574a9</color>
     <color name="colorPrimaryDark">#013243</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="bgCardView">#674172</color>
 </resources>
