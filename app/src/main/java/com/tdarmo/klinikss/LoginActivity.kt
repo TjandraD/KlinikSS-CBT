@@ -49,4 +49,18 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onStart(){
+        super.onStart()
+        FirebaseAuth.getInstance().currentUser?.let{
+            val user = FirebaseAuth.getInstance().currentUser?.email
+            if (user == "admin@example.com"){
+                val intent = Intent(this, AdminDashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
+                startActivity(intent)
+            }else{
+                val intent = Intent(this, Dashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
+                startActivity(intent)
+            }
+        }
+    }
 }

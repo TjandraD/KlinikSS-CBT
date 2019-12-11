@@ -13,4 +13,10 @@
     <string name="address">Alamat</string>
     <string name="phone_no">No. Handphone</string>
     <string name="doctorList">Lihat Daftar Dokter</string>
+    <string name="logout">Keluar</string>
+    <string name="home">Menu Utama</string>
+    <string name="profile">Profil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
