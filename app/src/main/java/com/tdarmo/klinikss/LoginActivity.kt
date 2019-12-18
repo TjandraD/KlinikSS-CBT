@@ -13,11 +13,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        getSupportActionBar()?.hide()
 
         btnLogin.setOnClickListener {
-            val email: String = inputEmail.text.toString()
-            val password: String = inputPassword.text.toString()
+            val email: String = inputEmail.text.toString().trim()
+            val password: String = inputPassword.text.toString().trim()
             if (email.isEmpty() || password.isEmpty()){
                 Toast.makeText(this, "Mohon masukkan E-mail dan Password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -29,11 +28,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else {
                         Toast.makeText(this, "Selamat datang", Toast.LENGTH_SHORT).show()
-                        if(email == "admin@example.com" && password == "admin123"){
-                            val intent = Intent(this, AdminDashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
+                        if(email == "admin@example.com"){
+                            val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }else{
-                            val intent = Intent(this, Dashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
+                            val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }
                     }
@@ -47,20 +46,6 @@ class LoginActivity : AppCompatActivity() {
         signUp.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
-        }
-    }
-
-    override fun onStart(){
-        super.onStart()
-        FirebaseAuth.getInstance().currentUser?.let{
-            val user = FirebaseAuth.getInstance().currentUser?.email
-            if (user == "admin@example.com"){
-                val intent = Intent(this, AdminDashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
-                startActivity(intent)
-            }else{
-                val intent = Intent(this, Dashboard::class.java).apply { Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK }
-                startActivity(intent)
-            }
         }
     }
 }

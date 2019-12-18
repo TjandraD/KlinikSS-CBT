@@ -42,7 +42,7 @@ class SignUp : AppCompatActivity() {
                     if(task.isSuccessful){
                         Log.d("SignUp", "createUserWithEmail:success")
                         Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@SignUp, Dashboard::class.java).apply{Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK}
+                        val intent = Intent(this@SignUp, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
                     }else{
                         Log.w("SignUp", "createUserWithEmail:failure", task.exception)

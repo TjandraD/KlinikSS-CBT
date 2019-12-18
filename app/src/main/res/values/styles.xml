@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/bggradient</item>
     </style>
 
     <style name="BtnGeneral" parent="@style/Widget.AppCompat.Button.Colored">
@@ -39,11 +40,17 @@
     <style name="InputText.Address">
         <item name="android:inputType">textLongMessage</item>
         <item name="android:hint">@string/address</item>
+        <item name="android:maxLines">3</item>
     </style>
 
     <style name="InputText.PhoneNo">
         <item name="android:inputType">phone</item>
         <item name="android:hint">@string/phone_no</item>
+    </style>
+
+    <style name="InputText.Age">
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/age</item>
     </style>
 
     <style name="BasicTextView">
