@@ -88,4 +88,30 @@
         <item name="android:layout_marginTop">80dp</item>
         <item name="android:layout_marginStart">20dp</item>
     </style>
+
+    <style name="BasicTextView.LeftUpperList">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="BasicTextView.RightUpperList">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="BasicTextView.LeftList">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="BasicTextView.RightList">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
 </resources>

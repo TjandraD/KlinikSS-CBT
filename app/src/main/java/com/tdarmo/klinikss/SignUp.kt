@@ -15,7 +15,7 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-        actionBar?.hide()
+        supportActionBar?.hide()
 
         btnSignUp.setOnClickListener{
             val email: String = inputEmail.text.toString().trim()

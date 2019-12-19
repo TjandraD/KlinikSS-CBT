@@ -27,4 +27,6 @@
     <string name="doctor">Dokter</string>
     <string name="user">Pengguna</string>
     <string name="clinic">Klinik</string>
+    <string name="addClinic">Tambah Klinik</string>
+    <string name="room">Ruangan</string>
 </resources>

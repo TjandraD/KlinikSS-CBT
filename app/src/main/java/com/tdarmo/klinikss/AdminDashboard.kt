@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.admin_dashboard.*
 
 class AdminDashboard : AppCompatActivity() {
 
@@ -15,6 +16,11 @@ class AdminDashboard : AppCompatActivity() {
         setContentView(R.layout.admin_dashboard)
         val actionBar = supportActionBar
         actionBar!!.title = "Admin Dashboard"
+
+        btnClinic.setOnClickListener{
+            val intent = Intent(this, ListClinic::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
