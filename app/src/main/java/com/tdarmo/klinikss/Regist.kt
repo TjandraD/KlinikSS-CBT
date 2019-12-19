@@ -1,8 +1,8 @@
 package com.tdarmo.klinikss
 
-class Regist (var id: String, var name: String, var age: String, var gender: String, var complaint: String){
+class Regist (var Name: String, var Age: String, var Gender: String, var Complaint: String){
 
-    constructor(): this("", "", "", "", ""){
+    constructor(): this( "", "", "", ""){
 
     }
 }

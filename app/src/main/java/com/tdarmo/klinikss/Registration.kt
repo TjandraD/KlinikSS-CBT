@@ -18,7 +18,6 @@ class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-        setSupportActionBar(toolbar)
         val actionbar = supportActionBar
         actionbar!!.title = "Pendaftaran"
 
@@ -47,6 +46,7 @@ class Registration : AppCompatActivity() {
         when (selectedMode) {
             R.id.add_data -> {
                 saveData()
+                finish()
             }
         }
     }
@@ -60,13 +60,9 @@ class Registration : AppCompatActivity() {
         val pos = spinner.selectedItemPosition
         val gender = spinner.getItemAtPosition(pos).toString()
 
-        val dataMap: HashMap<String, String> = HashMap()
-        dataMap["Name"] = name
-        dataMap["Age"] = age
-        dataMap["Complaint"] = complaint
-        dataMap["Gender"] = gender
+        val regist = Regist(name, age, gender, complaint)
 
-        database.push().setValue(dataMap).addOnCompleteListener {
+        database.push().setValue(regist).addOnCompleteListener {
             Toast.makeText(this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show()
         }
     }
