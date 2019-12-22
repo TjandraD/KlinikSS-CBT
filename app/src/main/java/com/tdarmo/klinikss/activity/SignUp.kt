@@ -1,4 +1,4 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.tdarmo.klinikss.R
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignUp : AppCompatActivity() {

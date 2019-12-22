@@ -1,5 +1,6 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +8,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.tdarmo.klinikss.models.Clinic
+import com.tdarmo.klinikss.R
 import kotlinx.android.synthetic.main.add_clinic.*
 
 class AddClinic : AppCompatActivity() {
@@ -33,7 +36,8 @@ class AddClinic : AppCompatActivity() {
         when (selectedMode) {
             R.id.add_data -> {
                 saveData()
-                finish()
+                val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
     }

@@ -1,10 +1,14 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.tdarmo.klinikss.adapter.AdapterRegis
+import com.tdarmo.klinikss.R
+import com.tdarmo.klinikss.models.Regist
 import kotlinx.android.synthetic.main.regis_list.*
 
 
@@ -35,9 +39,18 @@ class ListRegis : AppCompatActivity() {
                 if (p0!!.exists()){
                     for (h in p0.children){
                         val a = h.getValue(Regist::class.java)
-                        list.add(a!!)
+                        val email = FirebaseAuth.getInstance().currentUser?.email.toString()
+                        if (a != null) {
+                            if (a.Email == email){
+                                list.add(a!!)
+                            }
+                        }
                     }
-                    val adapter = AdapterRegis(applicationContext, R.layout.regist,list)
+                    val adapter = AdapterRegis(
+                        applicationContext,
+                        R.layout.regist,
+                        list
+                    )
                     listView.adapter = adapter
                 }
             }

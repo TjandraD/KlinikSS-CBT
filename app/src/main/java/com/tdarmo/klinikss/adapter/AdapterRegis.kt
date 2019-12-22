@@ -1,4 +1,4 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.tdarmo.klinikss.R
+import com.tdarmo.klinikss.models.Regist
 
 class AdapterRegis(val mCtx: Context, val layoutResId: Int, val list: List<Regist>): ArrayAdapter<Regist>(mCtx,layoutResId,list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{

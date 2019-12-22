@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:weightSum="2"
+        android:baselineAligned="false">
+        <TableRow>
+            <TextView
+                android:text="Nama"
+                style="@style/BasicTextView.LeftUpperList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textName"
+                style="@style/BasicTextView.RightUpperList"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Ruangan"
+                style="@style/BasicTextView.LeftList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textRoom"
+                style="@style/BasicTextView.RightList"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:text="Sunting"
+                style="@style/BtnGeneral"
+                android:layout_weight="1"/>
+            <Button
+                android:text="Hapus"
+                style="@style/BtnGeneral"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

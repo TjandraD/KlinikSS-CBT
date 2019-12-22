@@ -1,4 +1,4 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.tdarmo.klinikss.R
 import kotlinx.android.synthetic.main.admin_dashboard.*
 
 class AdminDashboard : AppCompatActivity() {
@@ -17,9 +18,17 @@ class AdminDashboard : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "Admin Dashboard"
 
+        btnRegis.setOnClickListener{
+
+        }
+
         btnClinic.setOnClickListener{
             val intent = Intent(this, ListClinic::class.java)
             startActivity(intent)
+        }
+
+        btnDoctor.setOnClickListener{
+
         }
     }
 

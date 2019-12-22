@@ -1,5 +1,6 @@
-package com.tdarmo.klinikss
+package com.tdarmo.klinikss.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -7,8 +8,11 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.tdarmo.klinikss.R
+import com.tdarmo.klinikss.models.Regist
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class Registration : AppCompatActivity() {
@@ -46,21 +50,23 @@ class Registration : AppCompatActivity() {
         when (selectedMode) {
             R.id.add_data -> {
                 saveData()
-                finish()
+                val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
     }
 
     private fun saveData() {
         val name = inputName.text.toString().trim()
-        val age = inputAge.text.toString().trim()
+        val age = inputAge.text.toString().trim() + " tahun"
         val complaint = inputKeluhan.text.toString().trim()
+        val email = FirebaseAuth.getInstance().currentUser?.email.toString()
 
         val spinner: Spinner = findViewById(R.id.genderSpinner)
         val pos = spinner.selectedItemPosition
         val gender = spinner.getItemAtPosition(pos).toString()
 
-        val regist = Regist(name, age, gender, complaint)
+        val regist = Regist(name, age, gender, complaint, email)
 
         database.push().setValue(regist).addOnCompleteListener {
             Toast.makeText(this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show()
