@@ -22,6 +22,11 @@ class Dashboard : AppCompatActivity() {
             val intent = Intent(this, ListRegis::class.java)
             startActivity(intent)
         }
+
+        btnDoctor.setOnClickListener{
+            val intent = Intent(this, ListDoctorUser::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

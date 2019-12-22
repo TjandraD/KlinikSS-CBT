@@ -19,7 +19,8 @@ class AdminDashboard : AppCompatActivity() {
         actionBar!!.title = "Admin Dashboard"
 
         btnRegis.setOnClickListener{
-
+            val intent = Intent(this, ListRegisAdmin::class.java)
+            startActivity(intent)
         }
 
         btnClinic.setOnClickListener{
