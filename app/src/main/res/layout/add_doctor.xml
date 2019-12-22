@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".activity.AddDoctor">
+    <TextView
+        style="@style/BasicTextView"
+        android:text="@string/addDoctor"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/inputName"
+        style="@style/InputText.Name"/>
+
+    <Spinner
+        android:id="@+id/clinicSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

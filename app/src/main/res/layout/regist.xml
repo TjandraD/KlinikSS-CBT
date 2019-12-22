@@ -39,6 +39,15 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:text="Dokter"
+                style="@style/BasicTextView.LeftList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textDoctor"
+                style="@style/BasicTextView.RightList"/>
+        </TableRow>
+        <TableRow>
+            <TextView
                 android:text="Keluhan"
                 style="@style/BasicTextView.LeftList"/>
             <TextView

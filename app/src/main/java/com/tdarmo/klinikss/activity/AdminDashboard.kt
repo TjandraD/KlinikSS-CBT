@@ -28,7 +28,8 @@ class AdminDashboard : AppCompatActivity() {
         }
 
         btnDoctor.setOnClickListener{
-
+            val intent = Intent(this, ListDoctor::class.java)
+            startActivity(intent)
         }
     }
 

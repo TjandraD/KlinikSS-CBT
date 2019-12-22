@@ -9,9 +9,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
+import com.tdarmo.klinikss.models.Doctor
 import com.tdarmo.klinikss.models.Regist
 import kotlinx.android.synthetic.main.activity_registration.*
 import java.text.SimpleDateFormat
@@ -19,7 +19,9 @@ import java.util.*
 
 
 class Registration : AppCompatActivity() {
-
+    var spinnerDataList = arrayListOf<String>()
+    var adapter: ArrayAdapter<String>? = null
+    private lateinit var ref: DatabaseReference
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Registration")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,13 @@ class Registration : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         val actionbar = supportActionBar
         actionbar!!.title = "Pendaftaran"
+
+        ref = FirebaseDatabase.getInstance().getReference("Doctor")
+        retrieveData()
+
+        val spinnerDoctor: Spinner = this.findViewById(R.id.doctorSpinner)
+        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerDataList)
+        spinnerDoctor.adapter = adapter
 
         val spinner: Spinner = this.findViewById(R.id.genderSpinner)
         ArrayAdapter.createFromResource(
@@ -37,6 +46,25 @@ class Registration : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
+    }
+
+    private fun retrieveData(){
+        ref.addValueEventListener(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError){
+
+            }
+            override fun onDataChange(p0: DataSnapshot){
+                if(p0.exists()){
+                    for(h in p0.children){
+                        val a = h.getValue(Doctor::class.java)
+                        if (a != null) {
+                            spinnerDataList.add(a.Name)
+                        }
+                    }
+                }
+                adapter?.notifyDataSetChanged()
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,9 +98,11 @@ class Registration : AppCompatActivity() {
         val pos = spinner.selectedItemPosition
         val gender = spinner.getItemAtPosition(pos).toString()
 
-        val regist = Regist(name, age, gender, complaint, email, date)
+        val spinnerDoctor: Spinner = findViewById(R.id.doctorSpinner)
+        val posSD = spinnerDoctor.selectedItemPosition
+        val doctor = spinnerDoctor.getItemAtPosition(posSD).toString()
 
-
+        val regist = Regist(name, age, gender, doctor, complaint, email, date)
 
         database.push().setValue(regist).addOnCompleteListener {
             Toast.makeText(this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show()
