@@ -36,13 +36,14 @@ class ListClinic : AppCompatActivity() {
 
             }
             override fun onDataChange(p0: DataSnapshot){
-                if(p0!!.exists()){
+                if(p0.exists()){
+                    list.clear()
                     for (h in p0.children){
                         val a = h.getValue(Clinic::class.java)
                         list.add(a!!)
                     }
                     val adapter = AdapterClinic(
-                        applicationContext,
+                        this@ListClinic,
                         R.layout.clinic,
                         list
                     )

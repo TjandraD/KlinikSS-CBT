@@ -31,10 +31,12 @@
         <TableRow>
             <Button
                 android:text="Sunting"
+                android:id="@+id/edtClinic"
                 style="@style/BtnGeneral"
                 android:layout_weight="1"/>
             <Button
                 android:text="Hapus"
+                android:id="@+id/dltClinic"
                 style="@style/BtnGeneral"
                 android:layout_weight="1"/>
         </TableRow>

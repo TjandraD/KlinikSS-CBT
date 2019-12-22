@@ -3,6 +3,7 @@ package com.tdarmo.klinikss.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -46,8 +47,10 @@ class AddClinic : AppCompatActivity() {
         val name: String = inputName.text.toString().trim()
         val room: String = inputRoom.text.toString().trim()
 
-        val clinic = Clinic(name, room)
-        database.push().setValue(clinic).addOnCompleteListener{
+        val clinicId = database.push().key.toString()
+
+        val clinic = Clinic(clinicId, name, room)
+        database.child(clinicId).setValue(clinic).addOnCompleteListener{
             Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }
     }
