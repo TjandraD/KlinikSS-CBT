@@ -47,6 +47,15 @@
                 style="@style/BasicTextView.RightList"/>
         </TableRow>
         <TableRow>
+            <TextView
+                android:text="Tanggal"
+                style="@style/BasicTextView.LeftList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textDate"
+                style="@style/BasicTextView.RightList"/>
+        </TableRow>
+        <TableRow>
             <Button
                 android:text="Sunting"
                 style="@style/BtnGeneral"

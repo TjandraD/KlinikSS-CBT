@@ -18,6 +18,7 @@ class AdapterRegis(val mCtx: Context, val layoutResId: Int, val list: List<Regis
         val textAge = view.findViewById<TextView>(R.id.textAge)
         val textGender = view.findViewById<TextView>(R.id.textGender)
         val textComplaint = view.findViewById<TextView>(R.id.textComplaint)
+        val textDate = view.findViewById<TextView>(R.id.textDate)
 
         val regist = list[position]
 
@@ -25,6 +26,7 @@ class AdapterRegis(val mCtx: Context, val layoutResId: Int, val list: List<Regis
         textAge.text = regist.Age
         textGender.text = regist.Gender
         textComplaint.text = regist.Complaint
+        textDate.text = regist.Date
 
         return view
     }

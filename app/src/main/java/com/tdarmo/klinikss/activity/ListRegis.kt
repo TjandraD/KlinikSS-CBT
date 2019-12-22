@@ -29,7 +29,7 @@ class ListRegis : AppCompatActivity() {
 
         ref = FirebaseDatabase.getInstance().getReference("Registration")
         list = mutableListOf()
-        listView = findViewById(R.id.listViewRegis)
+        listView = this.findViewById(R.id.listViewRegis)
 
         ref.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError){

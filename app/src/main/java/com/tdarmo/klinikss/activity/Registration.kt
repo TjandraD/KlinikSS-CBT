@@ -1,19 +1,22 @@
 package com.tdarmo.klinikss.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.models.Regist
 import kotlinx.android.synthetic.main.activity_registration.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class Registration : AppCompatActivity() {
 
@@ -61,12 +64,15 @@ class Registration : AppCompatActivity() {
         val age = inputAge.text.toString().trim() + " tahun"
         val complaint = inputKeluhan.text.toString().trim()
         val email = FirebaseAuth.getInstance().currentUser?.email.toString()
+        val date: String = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
 
         val spinner: Spinner = findViewById(R.id.genderSpinner)
         val pos = spinner.selectedItemPosition
         val gender = spinner.getItemAtPosition(pos).toString()
 
-        val regist = Regist(name, age, gender, complaint, email)
+        val regist = Regist(name, age, gender, complaint, email, date)
+
+
 
         database.push().setValue(regist).addOnCompleteListener {
             Toast.makeText(this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show()
