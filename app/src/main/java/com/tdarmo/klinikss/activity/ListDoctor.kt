@@ -35,13 +35,14 @@ class ListDoctor : AppCompatActivity() {
 
             }
             override fun onDataChange(p0: DataSnapshot){
+                list.clear()
                 if(p0.exists()){
                     for (h in p0.children){
                         val a = h.getValue(Doctor::class.java)
                         list.add(a!!)
                     }
                     val adapter = AdapterDoctor(
-                        applicationContext,
+                        this@ListDoctor,
                         R.layout.doctor,
                         list
                     )

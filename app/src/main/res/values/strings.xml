@@ -30,4 +30,5 @@
     <string name="addClinic">Tambah Klinik</string>
     <string name="room">Ruangan</string>
     <string name="addDoctor">Tambah Dokter</string>
+    <string name="edit">Sunting</string>
 </resources>

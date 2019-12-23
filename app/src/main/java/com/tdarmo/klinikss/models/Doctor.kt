@@ -1,7 +1,7 @@
 package com.tdarmo.klinikss.models
 
-class Doctor (var Name: String, var Clinic: String){
-    constructor(): this("", ""){
+class Doctor (var id: String, var Name: String, var Clinic: String){
+    constructor(): this("", "", ""){
 
     }
 }

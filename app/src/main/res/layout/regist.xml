@@ -68,10 +68,12 @@
             <Button
                 android:text="Sunting"
                 style="@style/BtnGeneral"
+                android:id="@+id/edtRegis"
                 android:layout_weight="1"/>
             <Button
                 android:text="Hapus"
                 style="@style/BtnGeneral"
+                android:id="@+id/dltRegis"
                 android:layout_weight="1"/>
         </TableRow>
     </TableLayout>

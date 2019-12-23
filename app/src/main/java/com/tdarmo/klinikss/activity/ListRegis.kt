@@ -47,7 +47,7 @@ class ListRegis : AppCompatActivity() {
                         }
                     }
                     val adapter = AdapterRegis(
-                        applicationContext,
+                        this@ListRegis,
                         R.layout.regist,
                         list
                     )

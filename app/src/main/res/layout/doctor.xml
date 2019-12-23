@@ -32,10 +32,12 @@
             <Button
                 android:text="Sunting"
                 style="@style/BtnGeneral"
+                android:id="@+id/edtDoctor"
                 android:layout_weight="1"/>
             <Button
                 android:text="Hapus"
                 style="@style/BtnGeneral"
+                android:id="@+id/dltDoctor"
                 android:layout_weight="1"/>
         </TableRow>
     </TableLayout>

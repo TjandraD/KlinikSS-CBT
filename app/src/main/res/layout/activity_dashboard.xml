@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/imgRegis"
+                    android:src="@drawable/list"
                     style="@style/BasicImageView"/>
                 <TextView
                     style="@style/BasicTextView.CardviewTitle"
@@ -47,6 +48,7 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/imgDoctor"
+                    android:src="@drawable/doctor"
                     style="@style/BasicImageView"/>
                 <TextView
                     style="@style/BasicTextView.CardviewTitle"

@@ -51,7 +51,7 @@ class AdapterClinic(val mCtx: Context, val layoutResId: Int, val list: List<Clin
     private fun showUpdateDialog(clinic: Clinic) {
         val builder = AlertDialog.Builder(mCtx)
 
-        builder.setTitle("Update")
+        builder.setTitle("Sunting")
 
         val inflater = LayoutInflater.from(mCtx)
 
