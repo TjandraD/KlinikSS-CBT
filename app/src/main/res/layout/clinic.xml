@@ -33,12 +33,14 @@
                 android:text="Sunting"
                 android:id="@+id/edtClinic"
                 style="@style/BtnGeneral"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"/>
             <Button
                 android:text="Hapus"
                 android:id="@+id/dltClinic"
                 style="@style/BtnGeneral"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

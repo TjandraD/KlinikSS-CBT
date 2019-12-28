@@ -21,7 +21,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="#fff"
-        android:elevation="5dp"
+        android:elevation="10dp"
         android:orientation="vertical"
         android:padding="20dp">
         <EditText
@@ -36,7 +36,6 @@
         <Button
             android:id="@+id/btnSignUp"
             style="@style/BtnGeneral"
-            android:text="@string/signUp"
-            android:background="@android:color/holo_blue_dark"/>
+            android:text="@string/signUp"/>
     </LinearLayout>
 </LinearLayout>
