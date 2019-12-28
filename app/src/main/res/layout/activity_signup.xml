@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".activity.SignUp">
 
@@ -13,30 +13,30 @@
         style="@style/BasicTextView"
         android:text="@string/signUp"
         android:textAlignment="center"
-        android:textAllCaps="true"
+        android:fontFamily="@font/billskates"
         android:textSize="20sp"
         android:layout_marginBottom="15dp"/>
 
-    <TextView
-        style="@style/BasicTextView"
-        android:text="@string/email" />
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <EditText
+            android:id="@+id/inputEmail"
+            style="@style/InputText.Email"/>
 
-    <EditText
-        android:id="@+id/inputEmail"
-        style="@style/InputText.Email"/>
+        <EditText
+            android:id="@+id/inputPassword"
+            style="@style/InputText.Password"
+            android:layout_marginBottom="15dp"/>
 
-    <TextView
-        style="@style/BasicTextView"
-        android:text="@string/password" />
-
-    <EditText
-        android:id="@+id/inputPassword"
-        style="@style/InputText.Password"
-        android:layout_marginBottom="15dp"/>
-
-    <Button
-        android:id="@+id/btnSignUp"
-        style="@style/BtnGeneral"
-        android:text="@string/signUp"
-        android:background="@android:color/holo_blue_dark"/>
+        <Button
+            android:id="@+id/btnSignUp"
+            style="@style/BtnGeneral"
+            android:text="@string/signUp"
+            android:background="@android:color/holo_blue_dark"/>
+    </LinearLayout>
 </LinearLayout>

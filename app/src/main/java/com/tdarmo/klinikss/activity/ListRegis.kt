@@ -11,7 +11,6 @@ import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.models.Regist
 import kotlinx.android.synthetic.main.regis_list.*
 
-
 class ListRegis : AppCompatActivity() {
 
     private lateinit var ref : DatabaseReference
@@ -21,6 +20,8 @@ class ListRegis : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.regis_list)
+        val actionBar = supportActionBar
+        actionBar!!.title = "List Registrasi"
 
         regist.setOnClickListener{
             val intent = Intent(this, Registration::class.java)

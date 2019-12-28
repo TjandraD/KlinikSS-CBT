@@ -25,11 +25,15 @@
     <style name="InputText.Email">
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:hint">@string/email</item>
+        <item name="android:drawableLeft">@drawable/ic_email</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="InputText.Password">
         <item name="android:inputType">textWebPassword</item>
         <item name="android:hint">@string/password</item>
+        <item name="android:drawableLeft">@drawable/ic_password</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="InputText.Name">
@@ -94,12 +98,14 @@
         <item name="android:textSize">20sp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:maxLines">1</item>
+        <item name="android:layout_width">0dp</item>
     </style>
 
     <style name="BasicTextView.RightUpperList">
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">0dp</item>
     </style>
 
     <style name="BasicTextView.LeftList">
@@ -107,6 +113,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:maxLines">1</item>
+        <item name="android:layout_width">0dp</item>
     </style>
 
     <style name="BasicTextView.RightList">
@@ -114,5 +121,6 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_width">0dp</item>
     </style>
 </resources>
