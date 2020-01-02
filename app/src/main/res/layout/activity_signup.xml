@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:gravity="center"
     android:orientation="vertical"
@@ -17,25 +18,30 @@
         android:textSize="20sp"
         android:layout_marginBottom="15dp"/>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:elevation="10dp"
-        android:orientation="vertical"
-        android:padding="20dp">
-        <EditText
-            android:id="@+id/inputEmail"
-            style="@style/InputText.Email"/>
+        app:cardCornerRadius="20dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="#fff">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <EditText
+                android:id="@+id/inputEmail"
+                style="@style/InputText.Email"/>
 
-        <EditText
-            android:id="@+id/inputPassword"
-            style="@style/InputText.Password"
-            android:layout_marginBottom="15dp"/>
+            <EditText
+                android:id="@+id/inputPassword"
+                style="@style/InputText.Password"
+                android:layout_marginBottom="15dp"/>
 
-        <Button
-            android:id="@+id/btnSignUp"
-            style="@style/BtnGeneral"
-            android:text="@string/signUp"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnSignUp"
+                style="@style/BtnGeneral"
+                android:text="@string/signUp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
