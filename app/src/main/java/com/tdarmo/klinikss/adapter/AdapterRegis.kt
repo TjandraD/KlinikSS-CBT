@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.activity.Dashboard
 import com.tdarmo.klinikss.activity.EditRegis
+import com.tdarmo.klinikss.activity.ListRegis
 import com.tdarmo.klinikss.models.Regist
 
 class AdapterRegis(val mCtx: Context, val layoutResId: Int, val list: List<Regist>): ArrayAdapter<Regist>(mCtx,layoutResId,list) {
@@ -60,7 +61,7 @@ class AdapterRegis(val mCtx: Context, val layoutResId: Int, val list: List<Regis
         val mydatabase = FirebaseDatabase.getInstance().getReference("Registration")
         mydatabase.child(regist.id).removeValue()
         Toast.makeText(mCtx,"Dihapus!",Toast.LENGTH_SHORT).show()
-        val intent = Intent(context, Dashboard::class.java)
+        val intent = Intent(context, ListRegis::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
 }

@@ -51,4 +51,9 @@ class ListDoctor : AppCompatActivity() {
             }
         })
     }
+
+    override fun onBackPressed(){
+        val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
 }

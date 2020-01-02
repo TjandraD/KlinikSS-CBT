@@ -81,7 +81,7 @@ class Registration : AppCompatActivity() {
         when (selectedMode) {
             R.id.add_data -> {
                 saveData()
-                val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                val intent = Intent(this, ListRegis::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
         }

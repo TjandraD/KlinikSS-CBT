@@ -37,6 +37,7 @@ class ListRegis : AppCompatActivity() {
 
             }
             override fun onDataChange(p0: DataSnapshot){
+                list.clear()
                 if (p0.exists()){
                     for (h in p0.children){
                         val a = h.getValue(Regist::class.java)
@@ -56,5 +57,10 @@ class ListRegis : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onBackPressed(){
+        val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }

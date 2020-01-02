@@ -10,6 +10,7 @@ import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.activity.AdminDashboard
 import com.tdarmo.klinikss.activity.EditDoctor
+import com.tdarmo.klinikss.activity.ListDoctor
 import com.tdarmo.klinikss.models.Doctor
 
 class AdapterDoctor(val mCtx: Context, val layoutResId: Int, val list: List<Doctor>): ArrayAdapter<Doctor>(mCtx, layoutResId, list) {
@@ -44,7 +45,7 @@ class AdapterDoctor(val mCtx: Context, val layoutResId: Int, val list: List<Doct
         val mydatabase = FirebaseDatabase.getInstance().getReference("Doctor")
         mydatabase.child(doctor.id).removeValue()
         Toast.makeText(mCtx,"Dihapus!",Toast.LENGTH_SHORT).show()
-        val intent = Intent(context, AdminDashboard::class.java)
+        val intent = Intent(context, ListDoctor::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
 }

@@ -67,7 +67,7 @@ class AddDoctor : AppCompatActivity() {
         when (selectedMode) {
             R.id.add_data -> {
                 saveData()
-                val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                val intent = Intent(this, ListDoctor::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
         }

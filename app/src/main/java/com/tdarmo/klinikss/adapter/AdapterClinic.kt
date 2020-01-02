@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.tdarmo.klinikss.models.Clinic
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.activity.AdminDashboard
+import com.tdarmo.klinikss.activity.ListClinic
 
 class AdapterClinic(val mCtx: Context, val layoutResId: Int, val list: List<Clinic>): ArrayAdapter<Clinic>(mCtx,layoutResId,list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
@@ -43,7 +44,7 @@ class AdapterClinic(val mCtx: Context, val layoutResId: Int, val list: List<Clin
         val mydatabase = FirebaseDatabase.getInstance().getReference("Clinic")
         mydatabase.child(clinic.Id).removeValue()
         Toast.makeText(mCtx,"Dihapus!",Toast.LENGTH_SHORT).show()
-        val intent = Intent(context, AdminDashboard::class.java)
+        val intent = Intent(context, ListClinic::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
 
