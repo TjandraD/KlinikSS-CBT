@@ -30,13 +30,15 @@
             <EditText
                 android:id="@+id/inputEmail"
                 style="@style/InputText.Email"
-                android:textColorHint="@android:color/black"/>
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"/>
 
             <EditText
                 android:id="@+id/inputPassword"
                 style="@style/InputText.Password"
                 android:layout_marginBottom="15dp"
-                android:textColorHint="@android:color/black"/>
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"/>
 
             <Button
                 android:id="@+id/btnLogin"
