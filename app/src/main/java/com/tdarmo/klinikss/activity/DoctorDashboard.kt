@@ -5,15 +5,55 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
+import com.tdarmo.klinikss.adapter.AdapterRegisAdmin
+import com.tdarmo.klinikss.models.Regist
 
 class DoctorDashboard : AppCompatActivity() {
+
+    private lateinit var ref : DatabaseReference
+    lateinit var list : MutableList<Regist>
+    lateinit var listView : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_dashboard)
+        val actionBar = supportActionBar
+        actionBar!!.title = "Dashboard Dokter"
+
+        ref = FirebaseDatabase.getInstance().getReference("Registration")
+        list = mutableListOf()
+        listView = this.findViewById(R.id.listViewRegis)
+
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError){
+
+            }
+            override fun onDataChange(p0: DataSnapshot){
+                list.clear()
+                if (p0.exists()){
+                    for (h in p0.children){
+                        val a = h.getValue(Regist::class.java)
+                        val doctorName = FirebaseAuth.getInstance().currentUser?.displayName.toString()
+                        if (a != null) {
+                            if (a.Doctor == doctorName){
+                                list.add(a)
+                            }
+                        }
+                    }
+                    val adapter = AdapterRegisAdmin(
+                        this@DoctorDashboard,
+                        R.layout.doctor_dashboard,
+                        list
+                    )
+                    listView.adapter = adapter
+                }
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
