@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EditRegis"></activity>
+        <activity android:name=".activity.DoctorDashboard"></activity>
+        <activity android:name=".activity.EditRegis" />
         <activity android:name=".activity.EditDoctor" />
         <activity android:name=".activity.ListRegisAdmin" />
         <activity android:name=".activity.ListDoctorUser" />
