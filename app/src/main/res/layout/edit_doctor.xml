@@ -10,7 +10,6 @@
     tools:context=".activity.EditDoctor">
     <EditText
         android:id="@+id/inputName"
-        android:textColor="@android:color/black"
         style="@style/InputText.Name"/>
 
     <Spinner
