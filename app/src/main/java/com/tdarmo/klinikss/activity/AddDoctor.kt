@@ -77,7 +77,7 @@ class AddDoctor : AppCompatActivity() {
     }
 
     private fun saveData(){
-        val name: String = inputName.text.toString().trim()
+        val name: String = "Dr. " + inputName.text.toString().trim()
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
         val clinic = spinner.getItemAtPosition(pos).toString()
@@ -94,7 +94,7 @@ class AddDoctor : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
                     if(task.isSuccessful){
-                        FirebaseAuth.getInstance().currentUser?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName("Doctor").build())
+                        FirebaseAuth.getInstance().currentUser?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())
                         Log.d("SignUp", "createUserWithEmail:success")
                         FirebaseAuth.getInstance().signOut()
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
