@@ -33,6 +33,9 @@ class LoginActivity : AppCompatActivity() {
                         if(email == "admin@example.com"){
                             val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
+                        }else if(FirebaseAuth.getInstance().currentUser?.displayName == "Doctor"){
+                            val intent = Intent(this, DoctorDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            startActivity(intent)
                         }else{
                             val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)

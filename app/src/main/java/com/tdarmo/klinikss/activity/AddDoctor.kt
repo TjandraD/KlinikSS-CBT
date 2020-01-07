@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.models.Clinic
@@ -32,7 +33,7 @@ class AddDoctor : AppCompatActivity() {
         retrieveData()
 
         val spinner: Spinner = this.findViewById(R.id.clinicSpinner)
-        adapter = ArrayAdapter(this, R.layout.spinner_design, spinnerDataList)
+        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerDataList)
         spinner.adapter = adapter
     }
 
@@ -93,11 +94,11 @@ class AddDoctor : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
                     if(task.isSuccessful){
-                        val currentUser = FirebaseAuth.getInstance().currentUser?.email
+                        FirebaseAuth.getInstance().currentUser?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName("Doctor").build())
                         Log.d("SignUp", "createUserWithEmail:success")
                         FirebaseAuth.getInstance().signOut()
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
-                        Toast.makeText(this, "Data berhasil ditambahkan, current user $currentUser", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                     }else{
                         val error = task.exception?.message
                         Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
