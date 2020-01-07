@@ -20,8 +20,36 @@
         android:id="@+id/inputName"
         style="@style/InputText.Name"/>
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="7">
+        <TableRow>
+            <EditText
+                android:layout_weight="6"
+                android:id="@+id/inputEmail"
+                style="@style/InputText.Email"
+                android:inputType="text"
+                android:drawableStart="@android:color/darker_gray"
+                tools:ignore="TextFields" />
+
+            <TextView
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:text=" @doctor.com"/>
+        </TableRow>
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/inputPassword"
+        style="@style/InputText.Password"
+        android:drawableStart="@android:color/darker_gray"/>
+
     <Spinner
         android:id="@+id/clinicSpinner"
+        style="@style/mySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

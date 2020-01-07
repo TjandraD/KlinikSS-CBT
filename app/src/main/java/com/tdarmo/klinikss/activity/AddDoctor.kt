@@ -3,11 +3,13 @@ package com.tdarmo.klinikss.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.models.Clinic
@@ -30,7 +32,7 @@ class AddDoctor : AppCompatActivity() {
         retrieveData()
 
         val spinner: Spinner = this.findViewById(R.id.clinicSpinner)
-        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerDataList)
+        adapter = ArrayAdapter(this, R.layout.spinner_design, spinnerDataList)
         spinner.adapter = adapter
     }
 
@@ -78,12 +80,33 @@ class AddDoctor : AppCompatActivity() {
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
         val clinic = spinner.getItemAtPosition(pos).toString()
+        val email = inputEmail.text.toString().trim() + "@doctor.com"
+        val password = inputPassword.text.toString().trim()
+        val adminEmail: String = FirebaseAuth.getInstance().currentUser?.email.toString()
+        val adminPassword = "admin123"
 
         val doctorId = database.push().key.toString()
 
         val doctor = Doctor(doctorId, name, clinic)
         database.child(doctorId).setValue(doctor).addOnCompleteListener{
-            Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            if(it.isSuccessful){
+                FirebaseAuth.getInstance().signOut()
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
+                    if(task.isSuccessful){
+                        val currentUser = FirebaseAuth.getInstance().currentUser?.email
+                        Log.d("SignUp", "createUserWithEmail:success")
+                        FirebaseAuth.getInstance().signOut()
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
+                        Toast.makeText(this, "Data berhasil ditambahkan, current user $currentUser", Toast.LENGTH_SHORT).show()
+                    }else{
+                        val error = task.exception?.message
+                        Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            else{
+                Toast.makeText(this, "Maaf, input data gagal", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
