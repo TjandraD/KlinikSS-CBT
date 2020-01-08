@@ -30,15 +30,19 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else {
                         Toast.makeText(this, "Selamat datang", Toast.LENGTH_SHORT).show()
-                        if(email == "admin@example.com"){
-                            val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(intent)
-                        }else if(FirebaseAuth.getInstance().currentUser?.displayName?.take(3) == "Dr."){
-                            val intent = Intent(this, DoctorDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                            startActivity(intent)
-                        }else{
-                            val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(intent)
+                        when {
+                            email == "admin@example.com" -> {
+                                val intent = Intent(this, AdminDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                            }
+                            FirebaseAuth.getInstance().currentUser?.email?.takeLast(11) == "@doctor.com" -> {
+                                val intent = Intent(this, DoctorDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                startActivity(intent)
+                            }
+                            else -> {
+                                val intent = Intent(this, Dashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                            }
                         }
                     }
                 }
