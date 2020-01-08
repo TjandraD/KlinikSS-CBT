@@ -38,9 +38,9 @@ class DoctorDashboard : AppCompatActivity() {
                 if (p0.exists()){
                     for (h in p0.children){
                         val a = h.getValue(Regist::class.java)
-                        val doctorName = FirebaseAuth.getInstance().currentUser?.displayName.toString()
+                        val doctorMail = FirebaseAuth.getInstance().currentUser?.email.toString()
                         if (a != null) {
-                            if (a.Doctor == doctorName){
+                            if (a.DoctorMail == doctorMail){
                                 list.add(a)
                             }
                         }
