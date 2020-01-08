@@ -89,18 +89,21 @@ class AddDoctor : AppCompatActivity() {
         val doctorId = database.push().key.toString()
 
         val doctor = Doctor(doctorId, name, clinic)
-        database.child(doctorId).setValue(doctor).addOnCompleteListener{
+        database.child(doctorId).setValue(doctor)
+            .addOnCompleteListener{
             if(it.isSuccessful){
                 FirebaseAuth.getInstance().signOut()
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this){task ->
                     if(task.isSuccessful){
-                        FirebaseAuth.getInstance().currentUser?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())
-                        Log.d("SignUp", "createUserWithEmail:success")
                         FirebaseAuth.getInstance().signOut()
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
+                        Log.d("SignUp", "createDoctorWithEmail:success")
                         Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                     }else{
-                        val error = task.exception?.message
+                        FirebaseAuth.getInstance().signOut()
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
+                        val error = task.exception?.message.toString()
                         Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
                     }
                 }
