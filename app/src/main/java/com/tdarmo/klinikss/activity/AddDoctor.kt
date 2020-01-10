@@ -83,8 +83,8 @@ class AddDoctor : AppCompatActivity() {
 
         val doctorId = database.push().key.toString()
 
-        val doctor = Doctor(doctorId, name, clinic, email, password)
-        database.child(email).setValue(doctor)
+        val doctor = Doctor(doctorId, name, clinic, username, password)
+        database.child(username).setValue(doctor)
             .addOnCompleteListener {
                 if(it.isSuccessful){
                     Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
