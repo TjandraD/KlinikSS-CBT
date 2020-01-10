@@ -24,6 +24,7 @@
         android:id="@+id/inputEmail"
         style="@style/InputText.Email"
         android:inputType="text"
+        android:hint="Username"
         android:drawableStart="@android:color/darker_gray"
         tools:ignore="TextFields" />
 
