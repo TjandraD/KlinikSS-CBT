@@ -27,14 +27,14 @@ class EditDoctor : AppCompatActivity() {
         supportActionBar!!.title = "Sunting Dokter"
 
         val inputName: EditText = findViewById(R.id.inputName)
-        val inputEmail: EditText = findViewById(R.id.inputEmail)
+        val inputUsername: EditText = findViewById(R.id.inputUsername)
         val inputPassword: EditText = findViewById(R.id.inputPassword)
 
         val name = intent.getStringExtra(EXTRA_NAME)
-        val email = intent.getStringExtra(EXTRA_EMAIL)
+        val username = intent.getStringExtra(EXTRA_USERNAME)
         val password = intent.getStringExtra(EXTRA_PASSWORD)
         inputName.setText(name)
-        inputEmail.setText(email)
+        inputUsername.setText(username)
         inputPassword.setText(password)
 
         ref = FirebaseDatabase.getInstance().getReference("Clinic")
@@ -93,7 +93,7 @@ class EditDoctor : AppCompatActivity() {
 
     private fun saveData() {
         val name: String = inputName.text.toString().trim()
-        val email: String = inputEmail.text.toString().trim()
+        val username: String = inputUsername.text.toString().trim()
         val password: String = inputPassword.text.toString().trim()
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
@@ -101,8 +101,8 @@ class EditDoctor : AppCompatActivity() {
 
         val doctorId = intent.getStringExtra(EXTRA_ID)
 
-        val doctor = Doctor(doctorId, name, clinic, email, password)
-        database.child(doctorId).setValue(doctor).addOnCompleteListener{
+        val doctor = Doctor(doctorId, name, clinic, username, password)
+        database.child(username).setValue(doctor).addOnCompleteListener{
             Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }
     }
