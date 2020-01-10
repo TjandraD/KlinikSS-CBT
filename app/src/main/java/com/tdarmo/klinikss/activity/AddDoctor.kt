@@ -77,40 +77,24 @@ class AddDoctor : AppCompatActivity() {
     }
 
     private fun saveData(){
-        val name: String = "Dr. " + inputName.text.toString().trim()
+        val name: String = inputName.text.toString().trim()
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
         val clinic = spinner.getItemAtPosition(pos).toString()
         val email = inputEmail.text.toString().trim() + "@doctor.com"
         val password = inputPassword.text.toString().trim()
-        val adminEmail: String = FirebaseAuth.getInstance().currentUser?.email.toString()
-        val adminPassword = "admin123"
 
         val doctorId = database.push().key.toString()
 
-        val doctor = Doctor(doctorId, name, clinic)
-        database.child(doctorId).setValue(doctor)
-            .addOnCompleteListener{
-            if(it.isSuccessful){
-                FirebaseAuth.getInstance().signOut()
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this){task ->
-                    if(task.isSuccessful){
-                        FirebaseAuth.getInstance().signOut()
-                        FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
-                        Log.d("SignUp", "createDoctorWithEmail:success")
-                        Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-                    }else{
-                        FirebaseAuth.getInstance().signOut()
-                        FirebaseAuth.getInstance().signInWithEmailAndPassword(adminEmail, adminPassword)
-                        val error = task.exception?.message.toString()
-                        Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
-                    }
+        val doctor = Doctor(doctorId, name, clinic, email, password)
+        database.child(email).setValue(doctor)
+            .addOnCompleteListener {
+                if(it.isSuccessful){
+                    Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }else{
+                    Toast.makeText(this, "Data gagal disimpan, silahkan coba lagi", Toast.LENGTH_SHORT).show()
                 }
             }
-            else{
-                Toast.makeText(this, "Maaf, input data gagal", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 }
