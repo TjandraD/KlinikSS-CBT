@@ -31,7 +31,12 @@ class EditDoctor : AppCompatActivity() {
         val inputPassword: EditText = findViewById(R.id.inputPassword)
 
         val name = intent.getStringExtra(EXTRA_NAME)
+        val email = intent.getStringExtra(EXTRA_EMAIL)
+        val password = intent.getStringExtra(EXTRA_PASSWORD)
         inputName.setText(name)
+        inputEmail.setText(email)
+        inputPassword.setText(password)
+
         ref = FirebaseDatabase.getInstance().getReference("Clinic")
         retrieveData()
     }
@@ -88,13 +93,15 @@ class EditDoctor : AppCompatActivity() {
 
     private fun saveData() {
         val name: String = inputName.text.toString().trim()
+        val email: String = inputEmail.text.toString().trim()
+        val password: String = inputPassword.text.toString().trim()
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
         val clinic = spinner.getItemAtPosition(pos).toString()
 
         val doctorId = intent.getStringExtra(EXTRA_ID)
 
-        val doctor = Doctor(doctorId, name, clinic)
+        val doctor = Doctor(doctorId, name, clinic, email, password)
         database.child(doctorId).setValue(doctor).addOnCompleteListener{
             Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }
