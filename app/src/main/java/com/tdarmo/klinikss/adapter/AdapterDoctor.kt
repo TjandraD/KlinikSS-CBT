@@ -20,7 +20,7 @@ class AdapterDoctor(val mCtx: Context, val layoutResId: Int, val list: List<Doct
 
         val textName = view.findViewById<TextView>(R.id.textName)
         val textClinic = view.findViewById<TextView>(R.id.textClinic)
-        val textEmail = view.findViewById<TextView>(R.id.textEmail)
+        val textUsername = view.findViewById<TextView>(R.id.textUsername)
         val textPassword = view.findViewById<TextView>(R.id.textPassword)
         val update = view.findViewById<Button>(R.id.edtDoctor)
         val delete = view.findViewById<Button>(R.id.dltDoctor)
@@ -29,15 +29,15 @@ class AdapterDoctor(val mCtx: Context, val layoutResId: Int, val list: List<Doct
 
         textName.text = doctor.Name
         textClinic.text = doctor.Clinic
-        textEmail.text = doctor.Email
+        textUsername.text = doctor.Username
         textPassword.text = doctor.Password
 
         update.setOnClickListener{
             val intent = Intent(mCtx, EditDoctor::class.java)
-            intent.putExtra(EditDoctor.EXTRA_NAME, list[position].Name)
-            intent.putExtra(EditDoctor.EXTRA_ID, list[position].id)
-            intent.putExtra(EditDoctor.EXTRA_EMAIL, list[position].Email)
-            intent.putExtra(EditDoctor.EXTRA_PASSWORD, list[position].Password)
+            intent.putExtra(EditDoctor.EXTRA_NAME, doctor.Name)
+            intent.putExtra(EditDoctor.EXTRA_ID, doctor.id)
+            intent.putExtra(EditDoctor.EXTRA_USERNAME, doctor.Username)
+            intent.putExtra(EditDoctor.EXTRA_PASSWORD, doctor.Password)
             mCtx.startActivity(intent)
         }
         delete.setOnClickListener{

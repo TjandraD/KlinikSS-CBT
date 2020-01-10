@@ -30,11 +30,11 @@
         </TableRow>
         <TableRow>
             <TextView
-                android:text="E-mail"
+                android:text="Username"
                 style="@style/BasicTextView.LeftList"/>
             <TextView
                 android:text="TextView"
-                android:id="@+id/textEmail"
+                android:id="@+id/textUsername"
                 style="@style/BasicTextView.RightList"/>
         </TableRow>
         <TableRow>

@@ -44,7 +44,7 @@ class EditDoctor : AppCompatActivity() {
     companion object{
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_ID = "extra_id"
-        const val EXTRA_EMAIL = "extra_email"
+        const val EXTRA_USERNAME = "extra_username"
         const val EXTRA_PASSWORD = "extra_password"
     }
 
