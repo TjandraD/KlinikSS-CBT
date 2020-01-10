@@ -78,7 +78,7 @@ class AddDoctor : AppCompatActivity() {
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
         val pos = spinner.selectedItemPosition
         val clinic = spinner.getItemAtPosition(pos).toString()
-        val email = inputEmail.text.toString().trim() + "@doctor.com"
+        val username = inputUsername.text.toString().trim()
         val password = inputPassword.text.toString().trim()
 
         val doctorId = database.push().key.toString()
