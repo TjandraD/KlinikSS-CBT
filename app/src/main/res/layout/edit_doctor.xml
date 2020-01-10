@@ -12,6 +12,18 @@
         android:id="@+id/inputName"
         style="@style/InputText.Name"/>
 
+    <EditText
+        android:id="@+id/inputEmail"
+        style="@style/InputText.Email"
+        android:inputType="text"
+        android:drawableStart="@android:color/darker_gray"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        style="@style/InputText.Password"
+        android:drawableStart="@android:color/darker_gray"/>
+
     <Spinner
         android:id="@+id/clinicSpinner"
         android:layout_width="match_parent"
