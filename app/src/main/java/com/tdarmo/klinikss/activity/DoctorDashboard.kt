@@ -12,6 +12,8 @@ import com.google.firebase.database.*
 import com.tdarmo.klinikss.R
 import com.tdarmo.klinikss.adapter.AdapterRegisAdmin
 import com.tdarmo.klinikss.models.Regist
+import com.tdarmo.klinikss.prevalent.Prevalent
+import io.paperdb.Paper
 
 class DoctorDashboard : AppCompatActivity() {
 
@@ -38,9 +40,9 @@ class DoctorDashboard : AppCompatActivity() {
                 if (p0.exists()){
                     for (h in p0.children){
                         val a = h.getValue(Regist::class.java)
-                        val doctorMail = FirebaseAuth.getInstance().currentUser?.email.toString()
+                        val doctorEmail = Paper.book().read<String>(Prevalent.doctorName)
                         if (a != null) {
-                            if (a.DoctorMail == doctorMail){
+                            if (a.Email == doctorEmail){
                                 list.add(a)
                             }
                         }

@@ -24,10 +24,11 @@ class EditDoctor : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_doctor)
-        val actionbar = supportActionBar
-        actionbar!!.title = "Sunting Dokter"
+        supportActionBar!!.title = "Sunting Dokter"
 
         val inputName: EditText = findViewById(R.id.inputName)
+        val inputEmail: EditText = findViewById(R.id.inputEmail)
+        val inputPassword: EditText = findViewById(R.id.inputPassword)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         inputName.setText(name)
@@ -38,6 +39,8 @@ class EditDoctor : AppCompatActivity() {
     companion object{
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_ID = "extra_id"
+        const val EXTRA_EMAIL = "extra_email"
+        const val EXTRA_PASSWORD = "extra_password"
     }
 
     private fun retrieveData(){
