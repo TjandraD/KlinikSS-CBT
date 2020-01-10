@@ -29,6 +29,24 @@
                 style="@style/BasicTextView.RightList"/>
         </TableRow>
         <TableRow>
+            <TextView
+                android:text="E-mail"
+                style="@style/BasicTextView.LeftList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textEmail"
+                style="@style/BasicTextView.RightList"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Password"
+                style="@style/BasicTextView.LeftList"/>
+            <TextView
+                android:text="TextView"
+                android:id="@+id/textPassword"
+                style="@style/BasicTextView.RightList"/>
+        </TableRow>
+        <TableRow>
             <Button
                 android:text="Sunting"
                 style="@style/BtnGeneral"
