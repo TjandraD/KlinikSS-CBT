@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
+        Paper.init(this)
 
         btnLogin.setOnClickListener {
             val email: String = inputEmail.text.toString().trim()
@@ -57,18 +58,20 @@ class LoginActivity : AppCompatActivity() {
                         }
 
                         override fun onDataChange(p0: DataSnapshot) {
-                            if(p0.child(email).exists() and (p0.child(email).child("Password").value == password)){
-                                val name = p0.child(email).child("Name").value.toString()
-                                Paper.book().write(Prevalent.doctorName, name)
+                            when {
+                                p0.child(email).exists() and (p0.child(email).child("password").value == password) -> {
+                                    val name = p0.child(email).child("name").value.toString()
+                                    Paper.book().write(Prevalent.doctorName, name)
 
-                                val intent = Intent(this@LoginActivity, DoctorDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                                startActivity(intent)
-                            }
-                            else if(p0.child(email).exists() and (p0.child(email).child("Password").value != password)){
-                                Toast.makeText(this@LoginActivity, "Password Anda salah, mohon coba lagi", Toast.LENGTH_SHORT).show()
-                            }
-                            else{
-                                Toast.makeText(this@LoginActivity, "Account with this email $email doesn't exist, please register first", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this@LoginActivity, DoctorDashboard::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    startActivity(intent)
+                                }
+                                p0.child(email).exists() and (p0.child(email).child("password").value != password) -> {
+                                    Toast.makeText(this@LoginActivity, "Password Anda salah, mohon coba lagi", Toast.LENGTH_SHORT).show()
+                                }
+                                else -> {
+                                    Toast.makeText(this@LoginActivity, "Account with this username $email doesn't exist, please register first", Toast.LENGTH_SHORT).show()
+                                }
                             }
                         }
                     })

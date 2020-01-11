@@ -14,12 +14,13 @@ import com.tdarmo.klinikss.adapter.AdapterRegisAdmin
 import com.tdarmo.klinikss.models.Regist
 import com.tdarmo.klinikss.prevalent.Prevalent
 import io.paperdb.Paper
+import java.lang.NullPointerException
 
 class DoctorDashboard : AppCompatActivity() {
 
     private lateinit var ref : DatabaseReference
     lateinit var list : MutableList<Regist>
-    lateinit var listView : ListView
+    private lateinit var listView : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +28,12 @@ class DoctorDashboard : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "Dashboard Dokter"
 
+        val x = Paper.book().read<String>(Prevalent.doctorName)
+        Toast.makeText(this, x, Toast.LENGTH_SHORT).show()
+
         ref = FirebaseDatabase.getInstance().getReference("Registration")
         list = mutableListOf()
-        listView = this.findViewById(R.id.listViewRegis)
+        listView = this.findViewById(R.id.listViewDoctorDashboard)
 
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError){
@@ -42,7 +46,7 @@ class DoctorDashboard : AppCompatActivity() {
                         val a = h.getValue(Regist::class.java)
                         val doctorEmail = Paper.book().read<String>(Prevalent.doctorName)
                         if (a != null) {
-                            if (a.Email == doctorEmail){
+                            if (a.Doctor == doctorEmail){
                                 list.add(a)
                             }
                         }
