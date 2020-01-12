@@ -67,7 +67,7 @@ class EditDoctor : AppCompatActivity() {
         })
 
         val spinner: Spinner = findViewById(R.id.clinicSpinner)
-        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerDataList)
+        adapter = ArrayAdapter(this, R.layout.spinner_design, spinnerDataList)
         spinner.adapter = adapter
     }
 
