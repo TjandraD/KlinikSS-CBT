@@ -34,16 +34,16 @@ class Registration : AppCompatActivity() {
         retrieveData()
 
         val spinnerDoctor: Spinner = this.findViewById(R.id.doctorSpinner)
-        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerDataList)
+        adapter = ArrayAdapter(this, R.layout.spinner_design, spinnerDataList)
         spinnerDoctor.adapter = adapter
 
         val spinner: Spinner = this.findViewById(R.id.genderSpinner)
         ArrayAdapter.createFromResource(
             this,
             R.array.genderList,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_design
         ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.spinner_design)
             spinner.adapter = adapter
         }
     }
